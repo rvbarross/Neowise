@@ -51,7 +51,7 @@ position = Vector2( 400, 300 )
 scale = Vector2( 1.48957, 1.68026 )
 frames = SubResource( 1 )
 animation = "Cena Menu"
-frame = 32
+frame = 4
 playing = true
 
 [node name="MenuBackground" type="AudioStreamPlayer" parent="."]
