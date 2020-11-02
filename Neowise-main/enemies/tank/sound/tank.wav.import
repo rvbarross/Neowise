@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/tank.wav-fb7c28eb5d101ba39c57732ad56a08af.sample"
+
+[deps]
+
+source_file="res://enemies/tank/sound/tank.wav"
+dest_files=[ "res://.import/tank.wav-fb7c28eb5d101ba39c57732ad56a08af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,42 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://player/player_texture/death_03.png" type="Texture" id=1]
+[ext_resource path="res://player/player_texture/death_01.png" type="Texture" id=2]
+[ext_resource path="res://player/player_texture/death_00.png" type="Texture" id=3]
+[ext_resource path="res://player/player_texture/death_02.png" type="Texture" id=4]
+[ext_resource path="res://player/player_texture/player_dark.png" type="Texture" id=5]
+[ext_resource path="res://player/sound/player.wav" type="AudioStream" id=6]
+[ext_resource path="res://player/player.gd" type="Script" id=7]
+[ext_resource path="res://enemies/tank/sound/player_death.wav" type="AudioStream" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "death",
+"speed": 15.0
+} ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"player",
+]]
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 21, 21, 21, 6, 3, -21, -3, -21, -21, 6, -21, 21 )
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Death" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
